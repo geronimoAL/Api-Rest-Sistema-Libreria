@@ -9,7 +9,7 @@ public interface EditorialServicio {
 
     public EditorialDto crearPublicacion(EditorialDto libroDto);
 
-    public List<EditorialDto> obtenerTodasLasPublicaciones();
+    public List<EditorialDto> obtenerTodasLasEditoriales();
 
     public EditorialDto obtenerPublicacionPorId(String id);
 

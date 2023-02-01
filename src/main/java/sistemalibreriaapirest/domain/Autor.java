@@ -1,5 +1,7 @@
 package sistemalibreriaapirest.domain;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,7 +23,7 @@ import lombok.Setter;
 @Setter
 @Entity
 @Table(name = "autores", uniqueConstraints = { @UniqueConstraint(columnNames = { "nombre" }) })
-public class Autor {
+public class Autor implements Serializable{
     @Id 
     @GeneratedValue(generator="system-uuid")   
     @GenericGenerator(name="system-uuid", strategy = "uuid")

@@ -32,12 +32,12 @@ public class LibroServicioImpl implements LibroServicio {
     @Override
     public LibroDto crearPublicacion(LibroDto libroDto) {
         Libro libro = mapearAEntidad(libroDto);
-        // Autor autor=autorRepository.findById(libroDto.getAutor().getId())
-        //       .orElseThrow(() -> new ResourceNotFoundException("Autor id ", "id", libroDto.getAutor().getId()));        ;
-        // Editorial editorial=editorialRepository.findById(libroDto.getEditorial().getId())
-        //       .orElseThrow(() -> new ResourceNotFoundException("Editorial id", "id", libroDto.getEditorial().getId())); 
-        // libro.setAutor(autor);
-        // libro.setEditorial(editorial);
+        Autor autor=autorRepository.findById(libroDto.getAutor().getId())
+              .orElseThrow(() -> new ResourceNotFoundException("Autor id ", "id", libroDto.getAutor().getId()));        ;
+        Editorial editorial=editorialRepository.findById(libroDto.getEditorial().getId())
+              .orElseThrow(() -> new ResourceNotFoundException("Editorial id", "id", libroDto.getEditorial().getId())); 
+        libro.setAutor(autor);
+        libro.setEditorial(editorial);
         Libro libroGuardado = libroRepository.save(libro);
         LibroDto libroRespuesta = mapearADto(libroGuardado);
         return libroRespuesta;

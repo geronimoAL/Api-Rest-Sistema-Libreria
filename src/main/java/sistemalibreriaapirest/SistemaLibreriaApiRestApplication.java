@@ -1,11 +1,9 @@
 package sistemalibreriaapirest;
 
 import org.modelmapper.ModelMapper;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import sistemalibreriaapirest.domain.Libro;
 
 @SpringBootApplication
 public class SistemaLibreriaApiRestApplication {

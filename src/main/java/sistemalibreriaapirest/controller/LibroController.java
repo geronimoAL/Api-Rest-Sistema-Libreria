@@ -37,6 +37,12 @@ public class LibroController {
            return  libroServicio.obtenerTodasLasPublicaciones();
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN','USER')")
+    @GetMapping("/buscar/{autor}/editorial/{editorial}")
+    public List<LibroDto> filtradoLibros(@PathVariable(value = "autor")String autor,@PathVariable(value = "editorial")String editorial) {
+           return  libroServicio.obtenerPublicacionesPorAutorYEditorial(autor, editorial);
+    }
+
     @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/{id}")
 	 public ResponseEntity<LibroDto> actualizarPublicacion(@Valid @RequestBody LibroDto libroDto,

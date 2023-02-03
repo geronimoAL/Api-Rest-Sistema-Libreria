@@ -11,6 +11,8 @@ public interface LibroServicio {
 
     public List<LibroDto> obtenerTodasLasPublicaciones();
 
+    public List<LibroDto> obtenerPublicacionesPorAutorYEditorial(String autor,String editorial);
+
     public LibroDto obtenerPublicacionPorId(String id);
 
     public LibroDto actualizarPublicacion(LibroDto libro, String id);

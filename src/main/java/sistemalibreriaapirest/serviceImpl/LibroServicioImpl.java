@@ -49,6 +49,7 @@ public class LibroServicioImpl implements LibroServicio {
         return librosGuardados.stream().map(libro -> mapearADto(libro)).collect(Collectors.toList());
     }
 
+
     @Override
     public LibroDto obtenerPublicacionPorId(String id) {
         Libro libro = libroRepository.findById(id)
@@ -86,5 +87,12 @@ public class LibroServicioImpl implements LibroServicio {
         Libro libro = modelMapper.map(libroDto, Libro.class);
         return libro;
     }
+
+    @Override
+    public List<LibroDto> obtenerPublicacionesPorAutorYEditorial(String autor, String editorial) {
+        List<Libro> filtradoDeLibros = libroRepository.librosAutorYEditorial(autor,editorial);
+        return filtradoDeLibros.stream().map(libro -> mapearADto(libro)).collect(Collectors.toList());
+    }
+    
 
 }

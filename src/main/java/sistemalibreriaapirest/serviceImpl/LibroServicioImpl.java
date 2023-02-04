@@ -6,9 +6,14 @@ import java.util.stream.Collectors;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import sistemalibreriaapirest.domain.Autor;
+import sistemalibreriaapirest.domain.Editorial;
 import sistemalibreriaapirest.domain.Libro;
 import sistemalibreriaapirest.dto.LibroDto;
 import sistemalibreriaapirest.errors.ResourceNotFoundException;
+import sistemalibreriaapirest.repository.AutorRepository;
+import sistemalibreriaapirest.repository.EditorialRepository;
 import sistemalibreriaapirest.repository.LibroRepository;
 import sistemalibreriaapirest.service.LibroServicio;
 
@@ -18,11 +23,21 @@ public class LibroServicioImpl implements LibroServicio {
     @Autowired
     private LibroRepository libroRepository;
     @Autowired
+    private AutorRepository autorRepository;
+    @Autowired
+    private EditorialRepository editorialRepository;
+    @Autowired
     private ModelMapper modelMapper;
 
     @Override
     public LibroDto crearPublicacion(LibroDto libroDto) {
         Libro libro = mapearAEntidad(libroDto);
+        Autor autor=autorRepository.findById(libroDto.getAutor().getId())
+              .orElseThrow(() -> new ResourceNotFoundException("Autor id ", "id", libroDto.getAutor().getId()));        ;
+        Editorial editorial=editorialRepository.findById(libroDto.getEditorial().getId())
+              .orElseThrow(() -> new ResourceNotFoundException("Editorial id", "id", libroDto.getEditorial().getId())); 
+        libro.setAutor(autor);
+        libro.setEditorial(editorial);
         Libro libroGuardado = libroRepository.save(libro);
         LibroDto libroRespuesta = mapearADto(libroGuardado);
         return libroRespuesta;
@@ -33,6 +48,7 @@ public class LibroServicioImpl implements LibroServicio {
         List<Libro> librosGuardados = libroRepository.findAll();
         return librosGuardados.stream().map(libro -> mapearADto(libro)).collect(Collectors.toList());
     }
+
 
     @Override
     public LibroDto obtenerPublicacionPorId(String id) {
@@ -71,5 +87,12 @@ public class LibroServicioImpl implements LibroServicio {
         Libro libro = modelMapper.map(libroDto, Libro.class);
         return libro;
     }
+
+    @Override
+    public List<LibroDto> obtenerPublicacionesPorAutorYEditorial(String autor, String editorial) {
+        List<Libro> filtradoDeLibros = libroRepository.librosAutorYEditorial(autor,editorial);
+        return filtradoDeLibros.stream().map(libro -> mapearADto(libro)).collect(Collectors.toList());
+    }
+    
 
 }

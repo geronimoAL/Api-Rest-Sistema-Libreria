@@ -1,10 +1,13 @@
 package sistemalibreriaapirest.dto;
 
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import sistemalibreriaapirest.domain.Autor;
+import sistemalibreriaapirest.domain.Editorial;
 
 @NoArgsConstructor
 @Setter
@@ -20,6 +23,10 @@ public class LibroDto {
     @Size(min = 4 ,message = "El año del libro debe tener 4 digitos")
     private String anio;
 
+    @NotNull(message = "Debe ingresar un autor")
+    private Autor autor;
+    @NotNull(message = "Debe ingresar una editorial")
+    private Editorial editorial;
     
 
 

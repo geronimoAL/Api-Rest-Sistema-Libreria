@@ -8,4 +8,5 @@ import sistemalibreriaapirest.domain.Editorial;
 @Repository
 public interface EditorialRepository extends  JpaRepository<Editorial, String>{
     
+    boolean existsByNombre(String nombre);
 }

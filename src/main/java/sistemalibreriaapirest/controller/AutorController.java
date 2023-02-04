@@ -29,8 +29,8 @@ public class AutorController {
     
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/guardar")
-    public ResponseEntity<AutorDto> guardarLibro(@Valid @RequestBody AutorDto libroDto) {
-        return new ResponseEntity<>(autorServicio.crearPublicacion(libroDto), HttpStatus.CREATED);
+    public ResponseEntity<AutorDto> guardarLibro(@Valid @RequestBody AutorDto autorDto) {
+        return new ResponseEntity<>(autorServicio.crearPublicacion(autorDto), HttpStatus.CREATED);
     }
 
     @PreAuthorize("hasRole('USER')")

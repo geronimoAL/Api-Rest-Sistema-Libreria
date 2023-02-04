@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import sistemalibreriaapirest.domain.Autor;
 import sistemalibreriaapirest.dto.AutorDto;
+import sistemalibreriaapirest.errors.ResourceBadRequest;
 import sistemalibreriaapirest.errors.ResourceNotFoundException;
 import sistemalibreriaapirest.repository.AutorRepository;
 import sistemalibreriaapirest.service.AutorServicio;
@@ -24,6 +25,10 @@ public class AutorServicioImpl implements AutorServicio {
     @Override
     public AutorDto crearPublicacion(AutorDto autorDto) {
         Autor autor = mapearAEntidad(autorDto);
+        boolean autorExiste=autorRepository.existsByNombre(autor.getNombre());
+        if (autorExiste){
+            throw new ResourceBadRequest("El nombre del autor ya existe");
+        }
         Autor autorGuardado = autorRepository.save(autor);
         AutorDto autorRespuesta = mapearADto(autorGuardado);
         return autorRespuesta;

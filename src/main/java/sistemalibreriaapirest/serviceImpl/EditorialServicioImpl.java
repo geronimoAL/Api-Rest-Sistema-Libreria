@@ -5,10 +5,13 @@ import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import sistemalibreriaapirest.domain.Editorial;
 import sistemalibreriaapirest.dto.EditorialDto;
+import sistemalibreriaapirest.errors.BlogAppExcepcion;
+import sistemalibreriaapirest.errors.ResourceBadRequest;
 import sistemalibreriaapirest.errors.ResourceNotFoundException;
 import sistemalibreriaapirest.repository.EditorialRepository;
 import sistemalibreriaapirest.service.EditorialServicio;
@@ -24,6 +27,10 @@ public class EditorialServicioImpl implements EditorialServicio {
     @Override
     public EditorialDto crearPublicacion(EditorialDto editorialDto) {
         Editorial editorial = mapearAEntidad(editorialDto);
+        boolean editorialExiste=editorialRepository.existsByNombre(editorial.getNombre());
+        if (editorialExiste){
+            throw new ResourceBadRequest("El nombre de la editorial ya existe");
+        }
         Editorial editorialGuardado = editorialRepository.save(editorial);
         EditorialDto editorialRespuesta = mapearADto(editorialGuardado);
         return editorialRespuesta;

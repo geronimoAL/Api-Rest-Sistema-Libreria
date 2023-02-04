@@ -9,4 +9,5 @@ import sistemalibreriaapirest.domain.Autor;
 @Repository
 public interface AutorRepository extends  JpaRepository<Autor, String>{
     
+    boolean existsByNombre(String nombre);
 }

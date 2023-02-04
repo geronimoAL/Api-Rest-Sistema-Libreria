@@ -18,6 +18,7 @@ Para poder hacer todo lo anterior tenes que tener una cuenta.
 Hay 2 tipos usuarios: ADMIN y USER.<br>
 El primero podrá hacer todo lo anterior y el otro podrá ver la lista de autores, editoriales y de libros (que puede filtrar por autor y editorial).
 El usuario que inicie sesión se le dará un token
+<br>
 [![login-token.jpg](https://i.postimg.cc/6QQSqNqt/login-token.jpg)](https://postimg.cc/BjdN7k2V)
 <br>
 Con la finalidad de que lo que quiera hacer deberá tenerlo en el header-autorization 

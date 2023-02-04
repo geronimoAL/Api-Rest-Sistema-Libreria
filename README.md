@@ -8,15 +8,15 @@ Cargar autor, editorial (mostrandote un mensaje con el nombre que ingresaste y e
 [![editorial-guardada.jpg](https://i.postimg.cc/tCrHD7Fh/editorial-guardada.jpg)](https://postimg.cc/ykS581Qd)
 [![guardado-autor.jpg](https://i.postimg.cc/66cs5TjD/guardado-autor.jpg)](https://postimg.cc/YjvDd2w3)
 <br>
-Ya teniendo los id de todo lo anterior podrás cargar el libro:
+Ya teniendo los id de todo lo anterior podrás cargar el libro
 <br>
 [![enviamos-bien-libro.jpg](https://i.postimg.cc/rwn596Vh/enviamos-bien-libro.jpg)](https://postimg.cc/PCDLtR8Z)
 <br>
-Como se muestra en el base de datos:
+Como se muestra en el base de datos
 <br>
 [![libro-guardado-con-exito.jpg](https://i.postimg.cc/nLmM9NC9/libro-guardado-con-exito.jpg)](https://postimg.cc/t1X9LSd9)
 <br>
-Pero si no llenas los campos te lo advertirá:
+Pero si no llenas los campos te lo advertirá
 <br>
 [![errores-sino-mandamos-lo-q-piden.jpg](https://i.postimg.cc/MZy7yS0b/errores-sino-mandamos-lo-q-piden.jpg)](https://postimg.cc/xq1N2B4c)
 <br>

@@ -1,7 +1,6 @@
 # API REST DE LIBRERIA
 <hr>
 
-
 La finalidad de esta aplicación es que pueda:
 <br>
 Cargar autor, editorial (mostrandote un mensaje con el nombre que ingresaste y el id que va tener):

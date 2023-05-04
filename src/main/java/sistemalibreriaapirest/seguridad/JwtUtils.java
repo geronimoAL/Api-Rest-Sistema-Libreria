@@ -30,7 +30,7 @@ public class JwtUtils {
     @Value("${app.jwt-secret}")
 	private String jwtSecret;
 	
-	//la duración del token es de 30 segundos
+	//la duración del token es de 3 horas
 	@Value("${app.jwt-expiration-milliseconds}")
 	private int jwtExpirationInMs;
 	

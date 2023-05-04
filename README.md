@@ -21,7 +21,7 @@ Los usuarios que se registren en ella tendrán como rol "USER" . Para que pueda 
 Este proyecto en lo que respecta a seguridad se maneja con token Jwt. Asi que si quieres acceder a ciertos recursos debes tener esto en el request
 ya que sino no podrás acceder. Para poder obtenerlo solamente tenés que iniciar sesión en la aplicación.<br>
 A continuación se muestran algunas imágenes de la aplicación:<br>
-------------------------------- <br>
+
 La finalidad de esta aplicación es que pueda:
 <br>
 Cargar autor, editorial (mostrandote un mensaje con el nombre que ingresaste y el id que va tener):

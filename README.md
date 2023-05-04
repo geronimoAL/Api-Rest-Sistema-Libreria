@@ -8,16 +8,16 @@ La api se implementa utilizando el patrón MVC de spring y se puede acceder a el
 -http://localhost:8080/api/libro/lista -> para ver todos los libros <br>
 -http://localhost:8080/apI/libro/buscar/{id}-> si quiere buscar un libro en particular <br>
 Si quiere ver más endpoints ir a http://localhost:8080/swagger ya que ahí están los otros endpoints.<br>
-Los usuarios que se registren en ella tendrán como rol "USER" . Para que pueda ser "ADMIN" los desarrolladores lo tendrán que configurar en la base de datos.           Estas son algunas acciones que podrá hacer cada rol en la aplicación (para ver más ir a la endpoint de swagger):                                                        -USUARIO 
-1-ver todos los libros 
-2-buscar por libro según el id
-3-buscar por autor y editorial
--ADMIN 
-1-agregar libro
-2-buscar por libro según el id
-3-buscar por autor y editorial
-4-actualizar libro
-5-eliminar libro
+Los usuarios que se registren en ella tendrán como rol "USER" . Para que pueda ser "ADMIN" los desarrolladores lo tendrán que configurar en la base de datos.           Estas son algunas acciones que podrá hacer cada rol en la aplicación (para ver más ir a la endpoint de swagger):                                                        -USUARIO<br>
+1-ver todos los libros <br>
+2-buscar por libro según el id <br>
+3-buscar por autor y editorial<br>
+-ADMIN <br>
+1-agregar libro<br>
+2-buscar por libro según el id <br>
+3-buscar por autor y editorial<br>
+4-actualizar libro<br>
+5-eliminar libro<br>
 Este proyecto en lo que respecta a seguridad se maneja con token Jwt. Asi que si quieres acceder a ciertos recursos debes tener esto en el request
 ya que sino no podrás acceder. Para poder obtenerlo solamente tenés que iniciar sesión en la aplicación.<br>
 A continuación se muestran algunas imágenes de la aplicación:<br>

@@ -5,12 +5,10 @@ import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import sistemalibreriaapirest.domain.Editorial;
 import sistemalibreriaapirest.dto.EditorialDto;
-import sistemalibreriaapirest.errors.BlogAppExcepcion;
 import sistemalibreriaapirest.errors.ResourceBadRequest;
 import sistemalibreriaapirest.errors.ResourceNotFoundException;
 import sistemalibreriaapirest.repository.EditorialRepository;
@@ -25,12 +23,12 @@ public class EditorialServicioImpl implements EditorialServicio {
     private ModelMapper modelMapper;
 
     @Override
-    public EditorialDto crearPublicacion(EditorialDto editorialDto) {
-        Editorial editorial = mapearAEntidad(editorialDto);
-        boolean editorialExiste=editorialRepository.existsByNombre(editorial.getNombre());
+    public EditorialDto crearEditorial(EditorialDto editorialDto) {
+        boolean editorialExiste=editorialRepository.existsByNombre(editorialDto.getNombre());
         if (editorialExiste){
             throw new ResourceBadRequest("El nombre de la editorial ya existe");
         }
+        Editorial editorial = mapearAEntidad(editorialDto);
         Editorial editorialGuardado = editorialRepository.save(editorial);
         EditorialDto editorialRespuesta = mapearADto(editorialGuardado);
         return editorialRespuesta;
@@ -43,16 +41,20 @@ public class EditorialServicioImpl implements EditorialServicio {
     }
 
     @Override
-    public EditorialDto obtenerPublicacionPorId(String id) {
+    public EditorialDto obtenerEditorialPorId(String id) {
         Editorial editorial = editorialRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Publicacion", "id", id));
+                .orElseThrow(() -> new ResourceNotFoundException("Editorial", ""));
         return mapearADto(editorial);
     }
 
     @Override
-    public EditorialDto actualizarPublicacion(EditorialDto editorialDto, String id) {
+    public EditorialDto actualizarEditorial(EditorialDto editorialDto, String id) {
+        boolean editorialExiste=editorialRepository.existsByNombre(editorialDto.getNombre());
+        if (editorialExiste){
+            throw new ResourceBadRequest("El nombre de la editorial ya existe");
+        }
         Editorial editorial = editorialRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Publicacion", "id", id));
+                .orElseThrow(() -> new ResourceNotFoundException("Editorial", "para actualizarlo"));
 
         editorial.setNombre(editorialDto.getNombre());
 
@@ -61,9 +63,9 @@ public class EditorialServicioImpl implements EditorialServicio {
     }
 
     @Override
-    public void eliminarPublicacion(String id) {
+    public void eliminarEditorial(String id) {
         Editorial editorial = editorialRepository.findById(id)
-				.orElseThrow(() -> new ResourceNotFoundException("Publicacion", "id", id));
+				.orElseThrow(() -> new ResourceNotFoundException("Editorial", "para eliminarlo"));
 		editorialRepository.delete(editorial);
     }
 

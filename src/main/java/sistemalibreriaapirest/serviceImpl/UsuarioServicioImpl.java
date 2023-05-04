@@ -36,7 +36,8 @@ public class UsuarioServicioImpl implements UsuarioServicio {
         throw new BlogAppExcepcion(HttpStatus.BAD_REQUEST, "El email ingresado ya existe.");
       } 
     Usuario usuario=mapearAEntidad(usuarioDto);
-    Rol rol=rolRepository.buscarPorNombre("USER");
+    //Si buscas abajo solo por USER no te trae el rol
+    Rol rol=rolRepository.buscarPorNombre("ROLE_USER");
     usuario.setEstado(true);
     usuario.addRole(rol);
     BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
@@ -52,7 +53,7 @@ public class UsuarioServicioImpl implements UsuarioServicio {
            Usuario usuarioModificado=mapearAEntidad(usuarioDto);
            usuarioRepository.save(usuarioModificado);
         }else{
-            throw new ResourceNotFoundException("Usuario ", "id", id);
+            throw new ResourceNotFoundException("Usuario ", "modificar");
         }
     }
 

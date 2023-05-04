@@ -5,12 +5,13 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
 public class UsuarioDto {
-    @NotEmpty(message = "No puede ser vario el nombre")
+    @NotEmpty(message = "No puede ser vacio el nombre")
     private String nombre;
     @Email(message = "El correo ingresado es incorrecto.")
 	private String email;
     @Size(min=6,message = "La contraseña debe tener al menos 6 digitos")
 	private String password;
+    private String repeatPassword;
     public String getNombre() {
         return nombre;
     }
@@ -28,6 +29,9 @@ public class UsuarioDto {
     }
     public void setPassword(String password) {
         this.password = password;
+    }
+    public String getRepeatPassword() {
+        return repeatPassword;
     }
     public UsuarioDto() {
     }

@@ -7,15 +7,15 @@ import sistemalibreriaapirest.dto.AutorDto;
 
 public interface AutorServicio {
 
-    public AutorDto crearPublicacion(AutorDto libroDto);
+    public AutorDto crearAutor(AutorDto libroDto);
 
-    public List<AutorDto> obtenerTodasLasPublicaciones();
+    public List<AutorDto> obtenerTodosLosAutores();
 
-    public AutorDto obtenerPublicacionPorId(String id);
+    public AutorDto obtenerAutorPorId(String id);
 
-    public AutorDto actualizarPublicacion(AutorDto libro, String id);
+    public AutorDto actualizarAutor(AutorDto libro, String id);
 
-    public void eliminarPublicacion(String id);
+    public void eliminarAutor(String id);
     
     public AutorDto mapearADto(Autor libro);
     

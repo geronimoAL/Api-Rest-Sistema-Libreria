@@ -23,45 +23,47 @@ public class AutorServicioImpl implements AutorServicio {
     private ModelMapper modelMapper;
 
     @Override
-    public AutorDto crearPublicacion(AutorDto autorDto) {
-        Autor autor = mapearAEntidad(autorDto);
-        boolean autorExiste=autorRepository.existsByNombre(autor.getNombre());
+    public AutorDto crearAutor(AutorDto autorDto) {
+        boolean autorExiste=autorRepository.existsByNombre(autorDto.getNombre());
         if (autorExiste){
-            throw new ResourceBadRequest("El nombre del autor ya existe");
+            throw new ResourceBadRequest("El nombre del autor ingresado ya existe en la BBDD");
         }
+        Autor autor = mapearAEntidad(autorDto);
         Autor autorGuardado = autorRepository.save(autor);
         AutorDto autorRespuesta = mapearADto(autorGuardado);
         return autorRespuesta;
     }
 
     @Override
-    public List<AutorDto> obtenerTodasLasPublicaciones() {
+    public List<AutorDto> obtenerTodosLosAutores() {
         List<Autor> autoresGuardados = autorRepository.findAll();
         return autoresGuardados.stream().map(autor -> mapearADto(autor)).collect(Collectors.toList());
     }
 
     @Override
-    public AutorDto obtenerPublicacionPorId(String id) {
+    public AutorDto obtenerAutorPorId(String id) {
         Autor autor = autorRepository.findById(id)
-        .orElseThrow(() -> new ResourceNotFoundException("Publicacion", "id", id)); 
+        .orElseThrow(() -> new ResourceNotFoundException("El autor", "en la bbdd")); 
         return mapearADto(autor);
     }
 
     @Override
-    public AutorDto actualizarPublicacion(AutorDto autorDto, String id) {
+    public AutorDto actualizarAutor(AutorDto autorDto, String id) {
+        boolean autorExiste=autorRepository.existsByNombre(autorDto.getNombre());
+        if (autorExiste){
+            throw new ResourceBadRequest("El nombre del autor ingresado ya existe en la BBDD");
+        }
         Autor autor = autorRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Publicacion", "id", id));
-
+                .orElseThrow(() -> new ResourceNotFoundException("El autor", "para actualizarlo"));
         autor.setNombre(autorDto.getNombre());
-
         Autor autorGuardado = autorRepository.save(autor);
         return mapearADto(autorGuardado);
     }
 
     @Override
-    public void eliminarPublicacion(String id) {
+    public void eliminarAutor(String id) {
         Autor autor = autorRepository.findById(id)
-				.orElseThrow(() -> new ResourceNotFoundException("Publicacion", "id", id));
+				.orElseThrow(() -> new ResourceNotFoundException("El autor", "para eliminarlo"));
 		autorRepository.delete(autor); 
     }
 

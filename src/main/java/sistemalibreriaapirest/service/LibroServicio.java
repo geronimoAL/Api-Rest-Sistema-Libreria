@@ -7,17 +7,17 @@ import sistemalibreriaapirest.dto.LibroDto;
 
 public interface LibroServicio {
 
-    public LibroDto crearPublicacion(LibroDto libroDto);
+    public LibroDto crearLibro(LibroDto libroDto);
 
-    public List<LibroDto> obtenerTodasLasPublicaciones();
+    public List<LibroDto> obtenerTodosLosLibros();
 
-    public List<LibroDto> obtenerPublicacionesPorAutorYEditorial(String autor,String editorial);
+    public List<LibroDto> obtenerLibrosPorAutorYEditorial(String autor,String editorial);
 
-    public LibroDto obtenerPublicacionPorId(String id);
+    public LibroDto obtenerLibroPorId(String id);
 
-    public LibroDto actualizarPublicacion(LibroDto libro, String id);
+    public LibroDto actualizarLibro(LibroDto libro, String id);
 
-    public void eliminarPublicacion(String id);
+    public void eliminarLibro(String id);
     
     public LibroDto mapearADto(Libro libro);
     

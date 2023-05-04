@@ -10,7 +10,7 @@ Cargar autor, editorial (mostrandote un mensaje con el nombre que ingresaste y e
 <br>
 Ya teniendo los id de todo lo anterior podrás cargar el libro
 <br>
-[![enviamos-bien-libro.jpg](https://github.com/geronimoAL/Api-Rest-Sistema-Libreria/tree/developer/src/main/resources/static/image)]
+[![enviamos-bien-libro.jpg]([https://github.com/geronimoAL/Api-Rest-Sistema-Libreria/tree/developer/src/main/resources/static/image](https://github.com/geronimoAL/Api-Rest-Sistema-Libreria/blob/developer/src/main/resources/static/image/enviamos-bien-libro.jpg))]
 <br>
 Como se muestra en el base de datos
 <br>

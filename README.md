@@ -21,7 +21,7 @@ Los usuarios que se registren en ella tendrán como rol "USER" . Para que pueda 
 Este proyecto en lo que respecta a seguridad se maneja con token Jwt que durará 3 horas. Asi que si quieres acceder a ciertos recursos debes tener esto en el request
 ya que sino no podrás acceder. Si intentas manipular esto tampoco te darán permiso.Para poder obtenerlo solamente tenés que iniciar sesión en la aplicación.
 A continuación se muestran algunas imágenes de la aplicación: <br>
-[token-en-login.jpg](https://postimg.cc/GHzDjxfy)
+[![token-en-login.jpg](https://i.postimg.cc/FHXxNPgD/token-en-login.jpg)](https://postimg.cc/GHzDjxfy)
 <hr>
 ## Tecnologías utilizadas:
 

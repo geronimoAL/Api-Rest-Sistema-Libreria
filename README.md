@@ -18,9 +18,9 @@ Los usuarios que se registren en ella tendrán como rol "USER" . Para que pueda 
 3-buscar por autor y editorial<br>
 4-actualizar libro<br>
 5-eliminar libro<br>
-Este proyecto en lo que respecta a seguridad se maneja con token Jwt. Asi que si quieres acceder a ciertos recursos debes tener esto en el request
-ya que sino no podrás acceder. Para poder obtenerlo solamente tenés que iniciar sesión en la aplicación.<br>
-A continuación se muestran algunas imágenes de la aplicación:<br>
+Este proyecto en lo que respecta a seguridad se maneja con token Jwt que durará 3 horas. Asi que si quieres acceder a ciertos recursos debes tener esto en el request
+ya que sino no podrás acceder. Si intentas manipular esto tampoco te darán permiso.Para poder obtenerlo solamente tenés que iniciar sesión en la aplicación.
+A continuación se muestran algunas imágenes de la aplicación: <br>
 
 La finalidad de esta aplicación es que pueda:
 <br>

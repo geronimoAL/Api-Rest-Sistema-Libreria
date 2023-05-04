@@ -1,6 +1,7 @@
 # API REST DE LIBRERIA
 <hr>
 
+
 La finalidad de esta aplicación es que pueda:
 <br>
 Cargar autor, editorial (mostrandote un mensaje con el nombre que ingresaste y el id que va tener):
@@ -10,7 +11,7 @@ Cargar autor, editorial (mostrandote un mensaje con el nombre que ingresaste y e
 <br>
 Ya teniendo los id de todo lo anterior podrás cargar el libro
 <br>
-[![enviamos-bien-libro.jpg]([[https://github.com/geronimoAL/Api-Rest-Sistema-Libreria/tree/developer/src/main/resources/static/image](https://github.com/geronimoAL/Api-Rest-Sistema-Libreria/blob/developer/src/main/resources/static/image/enviamos-bien-libro.jpg)](https://raw.githubusercontent.com/geronimoAL/Api-Rest-Sistema-Libreria/developer/src/main/resources/static/image/enviamos-bien-libro.jpg))]
+![enviamos-bien-libro](https://user-images.githubusercontent.com/92380676/236204531-b1bfa6f9-ac94-4fc5-8c7f-41b537feaea0.jpg)
 <br>
 Como se muestra en el base de datos
 <br>

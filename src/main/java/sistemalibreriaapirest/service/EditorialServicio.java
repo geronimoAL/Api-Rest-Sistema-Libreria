@@ -7,15 +7,15 @@ import sistemalibreriaapirest.dto.EditorialDto;
 
 public interface EditorialServicio {
 
-    public EditorialDto crearPublicacion(EditorialDto libroDto);
+    public EditorialDto crearEditorial(EditorialDto libroDto);
 
     public List<EditorialDto> obtenerTodasLasEditoriales();
 
-    public EditorialDto obtenerPublicacionPorId(String id);
+    public EditorialDto obtenerEditorialPorId(String id);
 
-    public EditorialDto actualizarPublicacion(EditorialDto libro, String id);
+    public EditorialDto actualizarEditorial(EditorialDto libro, String id);
 
-    public void eliminarPublicacion(String id);
+    public void eliminarEditorial(String id);
     
     public EditorialDto mapearADto(Editorial libro);
     

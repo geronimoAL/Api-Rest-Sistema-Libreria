@@ -15,6 +15,7 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
 
+import sistemalibreriaapirest.errors.BlogAppExcepcion;
 import sistemalibreriaapirest.serviceImpl.CustomUserDetailsService;
 
 public class AuthTokenFilter extends OncePerRequestFilter {
@@ -33,6 +34,7 @@ public class AuthTokenFilter extends OncePerRequestFilter {
         String token = obtenerJWTdeLaSolicitud(request);
 
         // validamos el token
+        try{
         if (StringUtils.hasText(token) && jwtUtils.validarToken(token)) {
             // obtenemos el username del token
             String username = jwtUtils.obtenerUsernameDelJWT(token);
@@ -46,6 +48,9 @@ public class AuthTokenFilter extends OncePerRequestFilter {
             // establecemos la seguridad
             SecurityContextHolder.getContext().setAuthentication(authenticationToken);
         }
+       } catch (BlogAppExcepcion e) {
+        logger.error("Error en el token del usuario: {}", e);
+      }
         filterChain.doFilter(request, response);
 
     }

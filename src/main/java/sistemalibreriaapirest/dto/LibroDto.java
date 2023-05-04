@@ -16,7 +16,7 @@ public class LibroDto {
 
     private String id;
     
-    @NotEmpty
+    @NotEmpty(message = "Debe ingresar un titulo para el libro")
     @Size(min = 2 ,message = "El titulo del libro deberia tener al menos 2 caracteres")
     private String titulo;
     

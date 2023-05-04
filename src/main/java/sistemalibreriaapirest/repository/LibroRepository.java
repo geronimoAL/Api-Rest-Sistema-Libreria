@@ -15,4 +15,5 @@ public interface LibroRepository extends  JpaRepository<Libro, String>{
     public List<Libro>librosAutorYEditorial(@Param("autor")String autor,@Param("editorial")String editorial);
 
 
+    boolean existsByTitulo(String nombre);
 }

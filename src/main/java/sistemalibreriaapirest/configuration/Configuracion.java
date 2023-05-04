@@ -12,6 +12,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import sistemalibreriaapirest.seguridad.AuthEntryPointJwt;
 import sistemalibreriaapirest.seguridad.AuthTokenFilter;
@@ -58,12 +59,13 @@ public class Configuracion {
     public SecurityFilterChain configure(HttpSecurity http) throws Exception {
         http
                 .exceptionHandling()
+                //si ocurria un error quien se encargaba es una clase que hice la logica
                 .authenticationEntryPoint(jwtAuthenticationEntryPoint)
                 .and()
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
-                .authorizeRequests()
+                .authorizeHttpRequests()
                 .antMatchers("/css/*", "/js/*", "/img/*","/**").permitAll()
                 .anyRequest()
                 .authenticated()
@@ -78,6 +80,8 @@ public class Configuracion {
                 .logoutUrl("/logout")
                 .logoutSuccessUrl("/")
                 .permitAll().and().csrf().disable();
+
+                 http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
 }

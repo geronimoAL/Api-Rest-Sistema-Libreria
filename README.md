@@ -19,21 +19,27 @@ Los usuarios que se registren en ella tendrán como rol "USER" . Para que pueda 
 4-actualizar libro<br>
 5-eliminar libro<br>
 Este proyecto en lo que respecta a seguridad se maneja con token Jwt que durará 3 horas. Asi que si quieres acceder a ciertos recursos debes tener esto en el request
-ya que sino no podrás acceder. Si intentas manipular esto tampoco te darán permiso.Para poder obtenerlo solamente tenés que iniciar sesión en la aplicación.
+ya que sino no podrás acceder. Si intentas manipular esto tampoco te darán permiso.Para poder obtenerlo solamente tenés que iniciar sesión en la aplicación.<br>
 A continuación se muestran algunas imágenes de la aplicación: <br>
+<img src="https://i.postimg.cc/FHXxNPgD/token-en-login.jpg" width="2000"/>
+<img src="https://i.postimg.cc/MHNXqrC5/imagen-post.jpg" width="2000"/>
+<img src="https://i.postimg.cc/Cxyd2XHL/ir-url-sin-token.jpg" width="2000"/>
+<img src="https://i.postimg.cc/wjh3Y205/enviamos-bien-libro.jpg" width="2000"/>
+<img src="https://i.postimg.cc/SKdsJs0J/sino-llenas-los-campos-bien-te-advertir.jpg" width="2000"/>
+<img src="https://i.postimg.cc/prhXGJmF/swagger.jpg" width="2000"/>
 
-
-<hr>
-## Tecnologías utilizadas:
+# Tecnologias utilizadas:
 
 * Visual Studio Code
 * Jdk Java 8
-* Spring Framework :<br>
-1- Spring Boot<br>
+* Spring Framework 5 :<br>
+1- Spring Boot 2.7.8 <br>
 2- Spring Data Jpa<br>
 3- Spring Security
+* Libreria JWT
 * Postman
 * Swagger
+
 
 
 
